@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import './App.css';
 
 function App() {
-  const memories = [
+  const [memories, setMemories] = useState([
     {
       id: 1,
       title: 'First Memory',
@@ -26,7 +27,14 @@ function App() {
       text: 'Small memories deserve a dramatic archive too.',
       emoji: '✨',
     },
-  ];
+  ]);
+
+  const [memoryForm, setMemoryForm] = useState({
+    title: '',
+    date: '',
+    mood: 'Happy',
+    text: '',
+  });
 
   const diaryPosts = [
     {
@@ -55,6 +63,42 @@ function App() {
       status: 'LOCKED',
     },
   ];
+
+  function handleMemoryChange(event) {
+    const { name, value } = event.target;
+
+    setMemoryForm({
+      ...memoryForm,
+      [name]: value,
+    });
+  }
+
+  function saveMemory() {
+    if (!memoryForm.title || !memoryForm.text) {
+      alert('Please add a title and caption first.');
+      return;
+    }
+
+    const newMemory = {
+      id: Date.now(),
+      title: memoryForm.title,
+      date: memoryForm.date || 'No date',
+      mood: memoryForm.mood,
+      text: memoryForm.text,
+      emoji: '💾',
+    };
+
+    setMemories([newMemory, ...memories]);
+
+    setMemoryForm({
+      title: '',
+      date: '',
+      mood: 'Happy',
+      text: '',
+    });
+
+    alert('Memory saved inside the capsule ✨');
+  }
 
   return (
     <div className="app">
@@ -154,17 +198,32 @@ function App() {
         <form className="memory-form">
           <label>
             Memory Title
-            <input type="text" placeholder="Example: Rainy day chaos" />
+            <input
+              type="text"
+              name="title"
+              value={memoryForm.title}
+              onChange={handleMemoryChange}
+              placeholder="Example: Rainy day chaos"
+            />
           </label>
 
           <label>
             Memory Date
-            <input type="date" />
+            <input
+              type="date"
+              name="date"
+              value={memoryForm.date}
+              onChange={handleMemoryChange}
+            />
           </label>
 
           <label>
             Mood
-            <select>
+            <select
+              name="mood"
+              value={memoryForm.mood}
+              onChange={handleMemoryChange}
+            >
               <option>Happy</option>
               <option>Cloudy</option>
               <option>Soft chaos</option>
@@ -180,10 +239,17 @@ function App() {
 
           <label className="full-width">
             Caption
-            <textarea placeholder="Write the tiny story behind this memory..."></textarea>
+            <textarea
+              name="text"
+              value={memoryForm.text}
+              onChange={handleMemoryChange}
+              placeholder="Write the tiny story behind this memory..."
+            ></textarea>
           </label>
 
-          <button type="button">SAVE MEMORY</button>
+          <button type="button" onClick={saveMemory}>
+            SAVE MEMORY
+          </button>
         </form>
       </section>
 
