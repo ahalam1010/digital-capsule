@@ -74,6 +74,7 @@ function App() {
         </div>
 
         <div className="nav-links">
+          <a href="#add-memory">add memory</a>
           <a href="#memories">memories</a>
           <a href="#diary">diary</a>
           <a href="#capsules">capsules</a>
@@ -109,7 +110,9 @@ function App() {
 
             <div className="hero-buttons">
               <button>ENTER</button>
-              <button className="secondary-button">NEW MEMORY</button>
+              <a href="#add-memory" className="button-link secondary-button">
+                NEW MEMORY
+              </a>
             </div>
           </div>
         </div>
@@ -127,6 +130,61 @@ function App() {
             <div></div>
           </div>
         </div>
+      </section>
+
+      <section className="section" id="add-memory">
+        <div className="section-header retro-window">
+          <div className="window-bar">
+            <div className="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>new-memory-form</p>
+            <button className="fake-close">x</button>
+          </div>
+
+          <div className="section-inner">
+            <p className="mini-label">create memory</p>
+            <h2>Add a New Memory</h2>
+            <p>Save a photo, mood, date, and tiny story inside the capsule.</p>
+          </div>
+        </div>
+
+        <form className="memory-form">
+          <label>
+            Memory Title
+            <input type="text" placeholder="Example: Rainy day chaos" />
+          </label>
+
+          <label>
+            Memory Date
+            <input type="date" />
+          </label>
+
+          <label>
+            Mood
+            <select>
+              <option>Happy</option>
+              <option>Cloudy</option>
+              <option>Soft chaos</option>
+              <option>Dreamy</option>
+              <option>Dramatic</option>
+            </select>
+          </label>
+
+          <label>
+            Upload Photo or Video
+            <input type="file" />
+          </label>
+
+          <label className="full-width">
+            Caption
+            <textarea placeholder="Write the tiny story behind this memory..."></textarea>
+          </label>
+
+          <button type="button">SAVE MEMORY</button>
+        </form>
       </section>
 
       <section className="section" id="memories">

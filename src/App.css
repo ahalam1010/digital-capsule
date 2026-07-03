@@ -449,3 +449,77 @@ footer {
     display: none;
   }
 }
+
+.button-link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 24px;
+  border: 2px solid #2d123f;
+  border-radius: 8px;
+  color: #2d123f;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #2d123f;
+  transition: 0.15s ease;
+}
+
+.button-link:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #2d123f;
+}
+
+.memory-form {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #fff8ef;
+  border: 2px solid #2d123f;
+  border-radius: 14px;
+  box-shadow: 8px 8px 0 #2d123f;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.memory-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #2d123f;
+  font-weight: 900;
+}
+
+.memory-form input,
+.memory-form select,
+.memory-form textarea {
+  width: 100%;
+  padding: 13px;
+  border: 2px solid #2d123f;
+  border-radius: 8px;
+  background: white;
+  font-family: inherit;
+  font-size: 15px;
+  color: #2d123f;
+}
+
+.memory-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.memory-form button {
+  width: fit-content;
+  background: #8be9d1;
+}
+
+@media (max-width: 900px) {
+  .memory-form {
+    grid-template-columns: 1fr;
+  }
+}
