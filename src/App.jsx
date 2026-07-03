@@ -10,6 +10,7 @@ function App() {
       mood: 'Soft chaos',
       text: 'A tiny saved moment from our little internet world.',
       emoji: '📸',
+      image: '',
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ function App() {
       mood: 'Dreamy',
       text: 'Trips, goals, promises, and future nonsense live here.',
       emoji: '🌙',
+      image: '',
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ function App() {
       mood: 'Warm',
       text: 'Small memories deserve a dramatic archive too.',
       emoji: '✨',
+      image: '',
     },
   ]);
 
@@ -34,6 +37,7 @@ function App() {
     date: '',
     mood: 'Happy',
     text: '',
+    image: '',
   });
 
   const diaryPosts = [
@@ -73,6 +77,21 @@ function App() {
     });
   }
 
+  function handleImageChange(event) {
+    const file = event.target.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    const imageUrl = URL.createObjectURL(file);
+
+    setMemoryForm({
+      ...memoryForm,
+      image: imageUrl,
+    });
+  }
+
   function saveMemory() {
     if (!memoryForm.title || !memoryForm.text) {
       alert('Please add a title and caption first.');
@@ -86,6 +105,7 @@ function App() {
       mood: memoryForm.mood,
       text: memoryForm.text,
       emoji: '💾',
+      image: memoryForm.image,
     };
 
     setMemories([newMemory, ...memories]);
@@ -95,6 +115,7 @@ function App() {
       date: '',
       mood: 'Happy',
       text: '',
+      image: '',
     });
 
     alert('Memory saved inside the capsule ✨');
@@ -234,8 +255,15 @@ function App() {
 
           <label>
             Upload Photo or Video
-            <input type="file" />
+            <input type="file" accept="image/*" onChange={handleImageChange} />
           </label>
+
+          {memoryForm.image && (
+            <div className="image-preview full-width">
+              <p>Preview</p>
+              <img src={memoryForm.image} alt="Memory preview" />
+            </div>
+          )}
 
           <label className="full-width">
             Caption
@@ -275,7 +303,16 @@ function App() {
         <div className="grid">
           {memories.map((memory) => (
             <div className="memory-card retro-card" key={memory.id}>
-              <div className="memory-icon">{memory.emoji}</div>
+              {memory.image ? (
+                <img
+                  src={memory.image}
+                  alt={memory.title}
+                  className="memory-photo"
+                />
+              ) : (
+                <div className="memory-icon">{memory.emoji}</div>
+              )}
+
               <p className="memory-date">{memory.date}</p>
               <h3>{memory.title}</h3>
               <p>{memory.text}</p>
