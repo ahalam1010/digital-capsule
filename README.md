@@ -1,28 +1,36 @@
 # Digital Capsule
 
-Digital Capsule is a private digital diary and time capsule website for saving memories, moods, photos, videos, and future letters.
+Digital Capsule is a private Y2K-style digital diary and time capsule website made for Ahlam and Afroz’s friendship.
 
-This project is being built as a personal portfolio project, starting with a website version and later expanding into an app.
+It is designed as a personal memory space where close friends can save memories, diary notes, moods, photos, future letters, and shared moments behind a secret-code entry screen.
 
 ## Day 1 Progress
 
 - Created the React project using Vite
 - Set up the basic landing page
 - Added the project name: Digital Capsule
-- Designed the first whimsical hero section
-- Added sections for:
-  - Memory Gallery
-  - Digital Diary
-  - Time Capsules
+- Added initial sections for memories, diary, and time capsules
+- Pushed the first version to GitHub
+
+## Day 2 Progress
+
+- Changed the visual direction to a pastel Y2K / retro web style
+- Added custom visual assets
+- Redesigned the landing hero section
+- Added a private secret-code input bar
+- Personalized the website for Ahlam and Afroz
+- Finalized the first clean hero layout
+- Changed the main action button to “Unlock”
 
 ## Current Features
 
-- Landing page
-- Navigation bar
-- Memory preview cards
-- Diary preview cards
-- Time capsule preview cards
-- Responsive basic design
+- Y2K-style landing page
+- Browser-inspired top bar
+- Simple navbar with Home and Our Story
+- Personalized hero section
+- Secret-code input UI
+- Decorative friendship note asset
+- Responsive layout foundation
 
 ## Tech Stack
 
@@ -30,15 +38,21 @@ This project is being built as a personal portfolio project, starting with a web
 - Vite
 - JavaScript
 - CSS
+- GitHub
+
+## Current Status
+
+The project currently has a finished landing hero section. The secret-code feature is visual only for now. Backend authentication and private access will be added later.
 
 ## Future Plans
 
-- Add login/signup
-- Add private access
-- Add memory upload
-- Add diary post creation
-- Add time capsule notes
-- Add Supabase backend
-- Add photo/video storage
-- Deploy website
-- Build mobile app version later
+- Add real secret-code authentication
+- Add private dashboard after unlock
+- Add memory gallery
+- Add photo and video upload
+- Add digital diary posts
+- Add time capsule letters
+- Add mood tracker
+- Add private storage using Supabase
+- Deploy the website
+- Build a mobile app version later
