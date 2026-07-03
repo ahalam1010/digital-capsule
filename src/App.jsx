@@ -4,10 +4,10 @@ function App() {
   const memories = [
     {
       id: 1,
-      title: 'First Capsule Memory',
+      title: 'First Memory',
       date: 'July 2026',
       mood: 'Soft chaos',
-      text: 'A little memory saved for the future.',
+      text: 'A tiny saved moment from our little internet world.',
       emoji: '📸',
     },
     {
@@ -15,7 +15,7 @@ function App() {
       title: 'Future Plan',
       date: 'Someday',
       mood: 'Dreamy',
-      text: 'A place for trips, goals, and promises.',
+      text: 'Trips, goals, promises, and future nonsense live here.',
       emoji: '🌙',
     },
     {
@@ -23,7 +23,7 @@ function App() {
       title: 'Tiny Moment',
       date: 'Today',
       mood: 'Warm',
-      text: 'Small memories matter too.',
+      text: 'Small memories deserve a dramatic archive too.',
       emoji: '✨',
     },
   ];
@@ -32,12 +32,12 @@ function App() {
     {
       id: 1,
       mood: 'Cloudy',
-      text: 'Today feels heavy, but this little capsule keeps the soft things safe.',
+      text: 'Today feels heavy, but this capsule keeps the soft things safe.',
     },
     {
       id: 2,
       mood: 'Happy',
-      text: 'One day we will look back at this and laugh at how dramatic we were.',
+      text: 'One day we will look back at this and laugh at everything.',
     },
   ];
 
@@ -46,56 +46,111 @@ function App() {
       id: 1,
       title: 'Open When You Miss Me',
       openDate: '2027',
-      status: 'Locked',
+      status: 'LOCKED',
     },
     {
       id: 2,
       title: 'Graduation Letter',
       openDate: 'Future',
-      status: 'Locked',
+      status: 'LOCKED',
     },
   ];
 
   return (
     <div className="app">
+      <div className="background-stickers">
+        <span>✦</span>
+        <span>♡</span>
+        <span>☁</span>
+        <span>✿</span>
+        <span>★</span>
+        <span>✉</span>
+      </div>
+
       <nav className="navbar">
-        <h2>Digital Capsule</h2>
+        <div className="logo">
+          <span className="logo-face">☺</span>
+          <h2>Digital Capsule</h2>
+        </div>
 
         <div className="nav-links">
-          <a href="#memories">Memories</a>
-          <a href="#diary">Diary</a>
-          <a href="#capsules">Capsules</a>
+          <a href="#memories">memories</a>
+          <a href="#diary">diary</a>
+          <a href="#capsules">capsules</a>
         </div>
       </nav>
 
       <section className="hero">
-        <div className="hero-card">
-          <p className="tagline">Private • Whimsical • Yours</p>
+        <div className="retro-window hero-window">
+          <div className="window-bar">
+            <div className="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>digital-capsule.exe</p>
+            <button className="fake-close">x</button>
+          </div>
 
-          <h1>Digital Capsule</h1>
+          <div className="hero-content">
+            <p className="mini-label">private bestie archive</p>
 
-          <p className="hero-text">
-            A private digital diary and time capsule for memories, moods,
-            photos, videos, dreams, and future letters.
-          </p>
+            <h1>Digital Capsule</h1>
 
-          <div className="hero-buttons">
-            <button>Enter Capsule</button>
-            <button className="secondary-button">Create Memory</button>
+            <p className="hero-text">
+              A private retro diary and time capsule for memories, moods,
+              photos, videos, future letters, and tiny dramatic feelings.
+            </p>
+
+            <div className="search-box">
+              <span>🔍</span>
+              <p>searching for soft memories...</p>
+            </div>
+
+            <div className="hero-buttons">
+              <button>ENTER</button>
+              <button className="secondary-button">NEW MEMORY</button>
+            </div>
+          </div>
+        </div>
+
+        <div className="floating-card card-one">
+          <p>NEW MESSAGE</p>
+          <h3>Have a nice day!</h3>
+          <button>OK</button>
+        </div>
+
+        <div className="floating-card card-two">
+          <p>STATUS</p>
+          <h3>happiness loading...</h3>
+          <div className="loading-bar">
+            <div></div>
           </div>
         </div>
       </section>
 
       <section className="section" id="memories">
-        <div className="section-header">
-          <p className="small-title">Memory Gallery</p>
-          <h2>Saved Moments</h2>
-          <p>Photos, videos, moods, and little stories will live here.</p>
+        <div className="section-header retro-window">
+          <div className="window-bar">
+            <div className="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>memory-gallery</p>
+            <button className="fake-close">x</button>
+          </div>
+
+          <div className="section-inner">
+            <p className="mini-label">memory gallery</p>
+            <h2>Saved Moments</h2>
+            <p>Photos, videos, moods, and little stories will live here.</p>
+          </div>
         </div>
 
         <div className="grid">
           {memories.map((memory) => (
-            <div className="memory-card" key={memory.id}>
+            <div className="memory-card retro-card" key={memory.id}>
               <div className="memory-icon">{memory.emoji}</div>
               <p className="memory-date">{memory.date}</p>
               <h3>{memory.title}</h3>
@@ -106,33 +161,58 @@ function App() {
         </div>
       </section>
 
-      <section className="section diary-section" id="diary">
-        <div className="section-header">
-          <p className="small-title">Digital Diary</p>
-          <h2>Today’s Feelings</h2>
-          <p>Short diary posts, like private tweets for your little universe.</p>
+      <section className="section" id="diary">
+        <div className="section-header retro-window">
+          <div className="window-bar">
+            <div className="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>digital-diary</p>
+            <button className="fake-close">x</button>
+          </div>
+
+          <div className="section-inner">
+            <p className="mini-label">digital diary</p>
+            <h2>Today’s Feelings</h2>
+            <p>Short diary posts, like private tweets for your little universe.</p>
+          </div>
         </div>
 
         <div className="diary-list">
           {diaryPosts.map((post) => (
-            <div className="diary-card" key={post.id}>
+            <div className="diary-card retro-card" key={post.id}>
               <p className="mood">Mood: {post.mood}</p>
               <p>{post.text}</p>
+              <button className="tiny-button">send hug</button>
             </div>
           ))}
         </div>
       </section>
 
       <section className="section" id="capsules">
-        <div className="section-header">
-          <p className="small-title">Time Capsules</p>
-          <h2>Letters for Later</h2>
-          <p>Locked notes for future days, birthdays, sad days, and big dreams.</p>
+        <div className="section-header retro-window">
+          <div className="window-bar">
+            <div className="window-dots">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <p>time-capsules</p>
+            <button className="fake-close">x</button>
+          </div>
+
+          <div className="section-inner">
+            <p className="mini-label">time capsules</p>
+            <h2>Letters for Later</h2>
+            <p>Locked notes for future days, birthdays, sad days, and big dreams.</p>
+          </div>
         </div>
 
         <div className="grid">
           {capsules.map((capsule) => (
-            <div className="capsule-card" key={capsule.id}>
+            <div className="capsule-card retro-card" key={capsule.id}>
               <div className="lock">🔒</div>
               <h3>{capsule.title}</h3>
               <p>Opens: {capsule.openDate}</p>
@@ -143,7 +223,7 @@ function App() {
       </section>
 
       <footer>
-        <p>Made for memories that deserve a soft place to stay.</p>
+        <p>made for memories that deserve a soft place to stay ✿</p>
       </footer>
     </div>
   );
